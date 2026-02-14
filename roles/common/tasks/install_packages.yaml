@@ -2,4 +2,4 @@
   package:
     name: "{{ required_packages }}"
     state: present
-  when: common_packages | length > 0
+  when: required_packages | length > 0
