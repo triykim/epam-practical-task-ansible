@@ -1,5 +1,5 @@
 ---
-- name: Print Network intefraces
+- name: Run "Common" role
   hosts: managed_nodes
   become: true
   vars:
