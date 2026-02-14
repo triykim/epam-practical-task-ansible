@@ -1,0 +1,8 @@
+---
+- name: Print Network intefraces
+  hosts: managed_nodes
+  become: true
+  tasks:
+    - name: Print list of Network interfaces
+      debug:
+        var: ansible_interfaces
