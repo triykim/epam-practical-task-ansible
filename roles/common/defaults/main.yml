@@ -1,2 +1,4 @@
 ---
 # defaults file for common
+required_packages: []
+disable_selinux: false

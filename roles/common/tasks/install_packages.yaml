@@ -1,0 +1,5 @@
+- name: Install required packages
+  package:
+    name: "{{ required_packages }}"
+    state: present
+  when: common_packages | length > 0

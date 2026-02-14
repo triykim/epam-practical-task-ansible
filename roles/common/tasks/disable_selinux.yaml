@@ -1,0 +1,7 @@
+- name: Disable SELinux
+  ansible.posix.selinux:
+    state: disabled
+  when: disable_selinux
+  register: selinux_result
+  notify: Reboot system
+
