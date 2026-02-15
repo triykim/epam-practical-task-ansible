@@ -13,3 +13,5 @@ additional_plugins:
   - uptime
   - users
   - vmem
+
+collectd_state: present # allowed values: present | absent

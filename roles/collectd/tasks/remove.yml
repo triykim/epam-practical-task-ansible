@@ -1,0 +1,25 @@
+---
+- name: Ensure {{ collectd_service_name }} service is disabled and stopped
+  ansible.builtin.service:
+    name: "{{ collectd_service_name }}"
+    state: stopped
+    enabled: false
+
+- name: Remove collectd and prometheus plugin
+  ansible.builtin.package:
+    name:
+      - "{{ collectd_package_name }}"
+      - "{{ collectd_prometheus_plugin }}"
+    state: absent
+
+- name: Remove {{ collectd_prometheus_config_path }} config file
+  ansible.builtin.file:
+    path: "{{ collectd_prometheus_config_path }}"
+    state: absent
+
+- name: Ensure {{ collectd_prometheus_port }} port is not allowed on Firewall
+  ansible.posix.firewalld:
+    port: "{{ collectd_prometheus_port }}/tcp"
+    state: disabled
+    permanent: true
+    immediate: true

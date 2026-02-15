@@ -1,13 +1,13 @@
 ---
 - name: Install collectd and prometheus plugin
-  package:
+  ansible.builtin.package:
     name:
       - "{{ collectd_package_name }}"
       - "{{ collectd_prometheus_plugin }}"
     state: latest
 
 - name: Ensure collectd config directory exists
-  file:
+  ansible.builtin.file:
     path: /etc/collectd.d
     state: directory
     owner: root
@@ -15,7 +15,7 @@
     mode: '0755'
 
 - name: Configure write_prometheus plugin
-  template:
+  ansible.builtin.template:
     src: prometheus.conf.j2
     dest: "{{ collectd_prometheus_config_path }}"
     owner: root
@@ -24,7 +24,7 @@
   notify: Restart collectd
 
 - name: Ensure {{ collectd_service_name }} service is enabled and started
-  service:
+  ansible.builtin.service:
     name: "{{ collectd_service_name }}"
     state: started
     enabled: true
