@@ -2,16 +2,17 @@
 - name: Run "Common" role
   hosts: managed_nodes
   become: true
-  vars:
-    required_packages:
-      - curl
-      - lsof
-      - mc
-      - nano
-      - tar
-      - unzip
-      - vim
-      - zip
-    disable_selinux: true
+  gather_facts: false
   roles:
-    - common
+    - name: common
+      vars:
+        disable_selinux: true
+        required_packages:
+          - curl
+          - lsof
+          - mc
+          - nano
+          - tar
+          - unzip
+          - vim
+          - zip
