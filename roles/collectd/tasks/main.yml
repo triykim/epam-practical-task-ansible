@@ -34,3 +34,4 @@
     port: "{{ collectd_prometheus_port }}/tcp"
     state: enabled
     permanent: true
+    immediate: true
