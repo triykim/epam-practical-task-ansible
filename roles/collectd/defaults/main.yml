@@ -4,3 +4,12 @@ collectd_prometheus_plugin: collectd-write_prometheus
 collectd_service_name: collectd
 collectd_prometheus_port: 9103
 collectd_prometheus_config_path: /etc/collectd.d/prometheus.conf
+additional_plugins:
+  - df
+  - processes
+  - protocols
+  - swap
+  - tcpconns
+  - uptime
+  - users
+  - vmem
