@@ -1,8 +1,8 @@
 ---
 - name: Install and configure collectd
   include_tasks: install.yml
-  when: collectd_state == present
+  when: collectd_state == "present"
 
 - name: Remove collectd
   include_tasks: remove.yml
-  when: collectd_state == absent
+  when: collectd_state == "absent"
