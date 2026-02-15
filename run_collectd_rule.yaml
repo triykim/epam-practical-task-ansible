@@ -1,0 +1,6 @@
+---
+- name: Run "collectd" role
+  hosts: managed_nodes
+  become: true
+  roles:
+    - collectd
